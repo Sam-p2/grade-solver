@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Grade Calculator</h1>
+    <form id="gradeForm" action="/calculate" method="post">
+        <label for="prelim">Prelim Grade:</label>
+        <input type="number" name="prelim" required><br>
+
+        <label for="midterm">Midterm Grade:</label>
+        <input type="number" name="midterm" required><br>
+
+        <label for="final">Final Grade:</label>
+        <input type="number" name="final" required><br>
+
+        <label for="quizzes">Quizzes Grade:</label>
+        <input type="number" name="quizzes" required><br>
+
+        <label for="recitation">Recitation Grade:</label>
+        <input type="number" name="recitation" required><br>
+
+        <label for="projects">Projects Grade:</label>
+        <input type="number" name="projects" required><br>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if result is not none %}
+    <h2>Final Grade: {{ result }}</h2>
+    {% endif %}
+</body>
+</html>
